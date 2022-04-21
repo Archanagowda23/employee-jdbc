@@ -18,8 +18,27 @@ public class EmployeeDatabase {
         return conn;
     }
 
+    // Insert data
+    public  static  void insert() {
+        String sql="insert into employee(id,name,date)"+
+                "values('4','Prathik','2022-07-03')";
+
+        Connection conn =getConnection();
+        try {
+            Statement st=conn.createStatement();
+            int count =st.executeUpdate(sql);
+            System.out.println( "Insert "+count+" records!" );
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
     public static void main(String[] args) {
         System.out.println("welcome to employee-jdbc program");
+        EmployeeDatabase jdbc = new EmployeeDatabase();
+        jdbc.insert();
     }
 }
 
